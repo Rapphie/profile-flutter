@@ -1,10 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'signup.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+  final Function()? onTap;
+  const LoginPage({super.key, required this.onTap});
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -51,21 +52,59 @@ class _LoginPageState extends State<LoginPage> {
     } on FirebaseAuthException catch (e) {
       // Specific error handling
       Navigator.pop(context);
-
-      showErrorMessage(e.code);
+      if (e.code == 'invalid-credential') {
+        showErrorMessage("Incorrect email or password.");
+      } else if (e.code == 'channel-error') {
+        showErrorMessage("Please don't leave the fields blank.");
+      } else {
+        showErrorMessage(e.code);
+      }
     }
   }
 
-  void signInWithGoogle() async {
+  signInWithGoogle() async {
     GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
 
-    GoogleSignInAuthentication? googleAuth = await googleUser?.authentication;
+    if (googleUser == null) {
+      print('Google sign-in aborted or failed.');
+      return; // Exit if googleUser is null
+    }
+
+    GoogleSignInAuthentication? googleAuth = await googleUser.authentication;
 
     AuthCredential credential = GoogleAuthProvider.credential(
-        accessToken: googleAuth?.accessToken, idToken: googleAuth?.idToken);
+      accessToken: googleAuth.accessToken,
+      idToken: googleAuth.idToken,
+    );
+
     UserCredential userCredential =
         await FirebaseAuth.instance.signInWithCredential(credential);
-    print(userCredential.user?.displayName);
+
+    print(userCredential.user?.displayName ?? 'No display name available');
+  }
+
+  Future<void> signInWithFacebook() async {
+    final LoginResult result = await FacebookAuth.instance.login();
+
+    if (result.status == LoginStatus.success) {
+      final accessToken = result.accessToken;
+
+      if (accessToken != null) {
+        // Use accessToken.token to get the actual token
+        final OAuthCredential credential =
+            FacebookAuthProvider.credential(accessToken.tokenString);
+
+        // Sign in to Firebase with the Facebook credential
+        try {
+          await FirebaseAuth.instance.signInWithCredential(credential);
+          print('Successfully signed in with Facebook!');
+        } catch (e) {
+          print('Firebase sign-in error: $e');
+        }
+      }
+    } else {
+      print('Facebook login failed: ${result.message}');
+    }
   }
 
   @override
@@ -216,7 +255,7 @@ class _LoginPageState extends State<LoginPage> {
                   margin: const EdgeInsets.all(0),
                   child: ElevatedButton(
                     onPressed: () {
-                      signInWithGoogle;
+                      signInWithGoogle();
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.white,
@@ -245,8 +284,44 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                 ),
+                const SizedBox(height: 15),
 
-                const SizedBox(height: 170),
+                Container(
+                  height: 65,
+                  margin: const EdgeInsets.all(0),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      signInWithFacebook();
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.blue[800],
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.elliptical(
+                            10, 10)), // No radius for button shape
+                      ),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset(
+                          'assets/images/facebook.png',
+                          height: 32,
+                        ),
+                        SizedBox(width: 10),
+                        Text(
+                          'Login with Facebook',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w500,
+                            fontSize: 18,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+
+                const SizedBox(height: 120),
 
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -256,10 +331,7 @@ class _LoginPageState extends State<LoginPage> {
                     SizedBox(width: 5),
                     GestureDetector(
                       onTap: () {
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(builder: (context) => SignupPage()),
-                        );
+                        widget.onTap!();
                       },
                       child: Text(
                         'Join',
@@ -279,5 +351,4 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
   }
-
 }

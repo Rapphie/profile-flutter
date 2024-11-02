@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:profile_app/pages/profile.dart';
-import 'package:profile_app/pages/login.dart';
+import 'package:profile_app/pages/home.dart';
+import 'package:profile_app/pages/toggle_login_regiser.dart';
 
 class AuthenticationPage extends StatelessWidget {
   const AuthenticationPage({super.key});
@@ -13,11 +13,9 @@ class AuthenticationPage extends StatelessWidget {
       builder: (context, snapshot) {
         // Check if the user is logged in
         if (snapshot.hasData) {
-          // Redirect to ProfilePage if logged in
-          return ProfilePage();
+          return HomePage();
         } else {
-          // Show LoginPage if not logged in
-          return LoginPage();
+          return ToggleLoginRegister();
         }
       },
     );
