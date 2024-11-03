@@ -1,6 +1,6 @@
 <div align="center">
-  <a href="https://github.com/Rapphie/profile-flutter/demo/app-logo.png">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  <a href="demo/app-logo.png">
+    <img src="demo/app-logo.png" alt="Logo" width="80" height="80" style="border-radius: 50%;">
   </a>
 
 <h3 align="center">Profile Flutter Application</h3>
@@ -158,18 +158,18 @@ This project leverages Firebase to authenticate users via Google and Facebook lo
 
 ### Register
 
-| Standard                                                   | Google                                                                | Facebook                                                                |
-| ---------------------------------------------------------- | --------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| ![Register Demo](https://github.com/Rapphie/demo/register.gif) | ![Register Demo](https://github.com/Rapphie/demo/register-google.gif) | ![Register Demo](https://github.com/Rapphie/demo/register-facebook.gif) |
+| Standard                            | Google                                     | Facebook                                     |
+| ----------------------------------- | ------------------------------------------ | -------------------------------------------- |
+| ![Register Demo](demo/register.gif) | ![Register Demo](demo/register-google.gif) | ![Register Demo](demo/register-facebook.gif) |
 
 
 
 ### Login
 
-| Standard                                                 | Google                                                          | Facebook                                                          |
-| -------------------------------------------------------- | --------------------------------------------------------------- | ----------------------------------------------------------------- |
-| ![Login Demo](https://github.com/Rapphie/demo/login.gif) | ![login Demo](https://github.com/Rapphie/demo/login-google.gif) | ![Login Demo](https://github.com/Rapphie/demo/login-facebook.gif) |
+| Standard                      | Google                               | Facebook                               |
+| ----------------------------- | ------------------------------------ | -------------------------------------- |
+| ![Login Demo](demo/login.gif) | ![login Demo](demo/login-google.gif) | ![Login Demo](demo/login-facebook.gif) |
 
 ### Home
 
-![Home Demo](https://github.com/Rapphie/demo/home.gif)
+![Home Demo](demo/home.gif)
