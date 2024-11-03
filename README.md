@@ -112,15 +112,15 @@ This project leverages Firebase to authenticate users via Google and Facebook lo
   - Download the `google-services.json` file and place it in the `android/app` directory.
   - Follow the instructions in the Firebase Console to add the necessary configurations to your project.
 
- 5. >  [!IMPORTANT]
-    > **Configure JDK Path:**
-    > 
-    > Open the `android/gradle.properties` file and update the `org.gradle.java.home` property to point to the path of the downloaded JDK 17. 
-    > 
-    > For example:
-    > ```properties
-    > org.gradle.java.home=C:\\Program Files\\Java\\jdk-17
-    > ```
+> [!IMPORTANT]
+> **Configure JDK Path:**
+> 
+> Open the `android/gradle.properties` file and update the `org.gradle.java.home` property to point to the path of the downloaded JDK 17. 
+> 
+> For example:
+> ```properties
+> org.gradle.java.home=C:\\Program Files\\Java\\jdk-17
+> ```
 
 
 ## Usage
