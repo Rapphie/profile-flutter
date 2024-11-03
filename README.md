@@ -1,5 +1,5 @@
 <div align="center">
-  <a href="https://github.com/github_username/repo_name">
+  <a href="https://github.com/Rapphie/profile-flutter/demo/app-logo.png">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
@@ -158,12 +158,18 @@ This project leverages Firebase to authenticate users via Google and Facebook lo
 
 ### Register
 
-![Register Demo](https://github.com/Rapphie/demo/home.webm)
+| Standard                                                   | Google                                                                | Facebook                                                                |
+| ---------------------------------------------------------- | --------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| ![Register Demo](https://github.com/Rapphie/demo/register.gif) | ![Register Demo](https://github.com/Rapphie/demo/register-google.gif) | ![Register Demo](https://github.com/Rapphie/demo/register-facebook.gif) |
+
+
 
 ### Login
 
-![Login Demo](https://github.com/Rapphie/demo/login.webm)
+| Standard                                                 | Google                                                          | Facebook                                                          |
+| -------------------------------------------------------- | --------------------------------------------------------------- | ----------------------------------------------------------------- |
+| ![Login Demo](https://github.com/Rapphie/demo/login.gif) | ![login Demo](https://github.com/Rapphie/demo/login-google.gif) | ![Login Demo](https://github.com/Rapphie/demo/login-facebook.gif) |
 
 ### Home
 
-![Home Demo](https://github.com/Rapphie/demo/login.webm)
+![Home Demo](https://github.com/Rapphie/demo/home.gif)
