@@ -9,7 +9,7 @@
     Welcome to the Profile Flutter Application, which uses Firebase to authenticate users via Google and Facebook login.
     <br />
     <br />
-    <a href="https://github.com/Rapphie/profile-flutter">View Demo</a>
+    <a href="#demo">View Demo</a>
     ·
     <a href="https://github.com/Rapphie/profile-flutter/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
     ·
@@ -81,7 +81,7 @@ This project leverages Firebase to authenticate users via Google and Facebook lo
 | Requirement       | Download Link                                      |
 | ----------------- | -------------------------------------------------- |
 | JDK 17            | [Utilized JDK version 17; using a lower or higher version may result in application incompatibility.](https://www.oracle.com/java/technologies/javase-jdk17-downloads.html) |
-| Flutter           | [The backbone of this application, developed using Flutter.](https://flutter.dev) |
+| Flutter           | [The backbone of this application, developed using Flutter.](https://docs.flutter.dev/get-started/install) |
 | Android Studio    | [Required for AVD Manager and other essential tools. Alternative text editors can also be used.](https://developer.android.com/studio) |
 
 ### Installation
