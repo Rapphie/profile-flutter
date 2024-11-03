@@ -53,6 +53,7 @@
 </details>
 
 ## About the Project
+
 This project leverages Firebase to authenticate users via Google and Facebook login. The application is designed to provide a seamless and secure authentication experience. Additionally, this is a basic Android app with a cipher generator and encoder that processes Atbash, Caesar, and Vigenere ciphers.
 
 ### Key Features
@@ -78,37 +79,51 @@ This project leverages Firebase to authenticate users via Google and Facebook lo
 
 ### Prerequisites
 
-| Requirement       | Download Link                                      |
-| ----------------- | -------------------------------------------------- |
-| JDK 17            | [Utilized JDK version 17; using a lower or higher version may result in application incompatibility.](https://www.oracle.com/java/technologies/javase-jdk17-downloads.html) |
-| Flutter           | [The backbone of this application, developed using Flutter.](https://docs.flutter.dev/get-started/install) |
-| Android Studio    | [Required for AVD Manager and other essential tools. Alternative text editors can also be used.](https://developer.android.com/studio) |
+| Requirement    | Download Link                                                                                                                                                               |
+| -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| JDK 17         | [Utilized JDK version 17; using a lower or higher version may result in application incompatibility.](https://www.oracle.com/java/technologies/javase-jdk17-downloads.html) |
+| Flutter        | [The backbone of this application, developed using Flutter.](https://docs.flutter.dev/get-started/install)                                                                  |
+| Android Studio | [Required for AVD Manager and other essential tools. Alternative text editors can also be used.](https://developer.android.com/studio)                                      |
 
 ### Installation
 
-1. **Clone the repository:**
+ 1. **Clone the repository:**
+
   ```sh
   git clone https://github.com/Rapphie/profile-flutter.git
   ```
-2. **Navigate to the project directory:**
+
+ 2. **Navigate to the project directory:**
+
   ```sh
   cd profile-flutter.git
   ```
-3. **Install dependencies:**
+
+ 3. **Install dependencies:**
+
   ```sh
   flutter pub get
   ```
-4. **Set up Firebase:**
-  - Create a new Firebase project in the [Firebase Console](https://console.firebase.google.com/).
+
+ 4. **Set up Firebase:**
+
+- Create a new Firebase project in the [Firebase Console](https://console.firebase.google.com/).
   - Add an Android app to your Firebase project.
   - Download the `google-services.json` file and place it in the `android/app` directory.
   - Follow the instructions in the Firebase Console to add the necessary configurations to your project.
 
-5. **Run the application:**
-  ```bash
-  flutter run -v
-  ```
-  ## Usage
+ 5. >  [!IMPORTANT]
+    > **Configure JDK Path:**
+    > 
+    > Open the `android/gradle.properties` file and update the `org.gradle.java.home` property to point to the path of the downloaded JDK 17. 
+    > 
+    > For example:
+    > ```properties
+    > org.gradle.java.home=C:\\Program Files\\Java\\jdk-17
+    > ```
+
+
+## Usage
 
   To use the Profile Flutter Application, follow these steps:
 
@@ -141,10 +156,14 @@ This project leverages Firebase to authenticate users via Google and Facebook lo
 
 ## Demo
 
+### Register
+
+![Register Demo](https://github.com/Rapphie/demo/home.webm)
+
 ### Login
 
-### Register
+![Login Demo](https://github.com/Rapphie/demo/login.webm)
 
 ### Home
 
-### Encrpyption
+![Home Demo](https://github.com/Rapphie/demo/login.webm)

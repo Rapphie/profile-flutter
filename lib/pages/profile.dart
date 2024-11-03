@@ -197,8 +197,8 @@ class ContactForm extends StatefulWidget {
 
 class ContactFormState extends State<ContactForm> {
   final formKey = GlobalKey<FormState>();
-  String initialCountry = 'US';
-  PhoneNumber phoneNumber = PhoneNumber(isoCode: 'US');
+  String initialCountry = 'PH';
+  PhoneNumber phoneNumber = PhoneNumber(isoCode: 'PH');
 
   @override
   Widget build(BuildContext context) {
