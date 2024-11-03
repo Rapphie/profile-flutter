@@ -173,5 +173,5 @@ This project leverages Firebase to authenticate users via Google and Facebook lo
 ### Home
 
 <p align="center">
-  <img src="demo/home.gif" alt="Home Demo" width="400" height="auto">
+  <img src="demo/home.gif" alt="Home Demo" width="auto" height="600">
 </p>
