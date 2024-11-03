@@ -98,7 +98,7 @@ class _HomePageState extends State<HomePage> {
   static final List<Widget> _pages = <Widget>[
     ProfilePage(),
     EncryptionPage(),
-    Center(child: Text('Logout Page')), // Placeholder widget for logout page
+    Center(), // Placeholder widget for logout page
   ];
 
   @override
