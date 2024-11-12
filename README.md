@@ -113,6 +113,7 @@ This project leverages Firebase to authenticate users via Google and Facebook lo
   - Follow the instructions in the Firebase Console to add the necessary configurations to your project.
 
 - Setup your firebase x flutter using the [Firebase Flutter Setup Documentation](https://firebase.google.com/docs/flutter/setup?platform=ios)
+  - Ensure that after you follow the documentation generate correspanding SHA and put it in your firebase app check the [documentation here](https://developers.google.com/android/guides/client-auth)
 > [!IMPORTANT]
 > **Configure JDK Path:**
 > 
