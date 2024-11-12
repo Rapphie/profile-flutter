@@ -19,6 +19,12 @@ class _SignupPageState extends State<SignupPage> {
 
   bool _isObscured = true;
 
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
+  
   void showErrorMessage(String message) {
     showDialog(
         context: context,
@@ -54,9 +60,18 @@ class _SignupPageState extends State<SignupPage> {
       }
     } on FirebaseAuthException catch (e) {
       // Specific error handling
-      Navigator.pop(context);
-
-      showErrorMessage(e.code);
+      if (mounted) {
+        Navigator.pop(context);
+      }
+      if (e.code == 'channel-error') {
+        showErrorMessage("Please don't leave the fields blank.");
+      } else if (e.code == 'email-already-in-use') {
+        showErrorMessage('Email is already in use.');
+      } else if (e.code == 'weak-password') {
+        showErrorMessage('Password should atleast have 6 characters.');
+      } else {
+        showErrorMessage('An error occurred. Please try again later.');
+      }
     }
   }
 
@@ -121,7 +136,7 @@ class _SignupPageState extends State<SignupPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                const SizedBox(height: 50),
+                const SizedBox(height: 10),
 
                 Row(
                   children: [
@@ -141,7 +156,7 @@ class _SignupPageState extends State<SignupPage> {
                   ],
                 ),
 
-                const SizedBox(height: 26),
+                const SizedBox(height: 20),
 
                 Row(
                   children: [
@@ -233,7 +248,7 @@ class _SignupPageState extends State<SignupPage> {
                   children: [
                     Text(
                       'By signing up you agree to our ',
-                      style: TextStyle(fontSize: 13),
+                      style: TextStyle(fontSize: 12),
                     ),
                     const SizedBox(width: 5),
                     Text(
@@ -378,7 +393,7 @@ class _SignupPageState extends State<SignupPage> {
                   ),
                 ),
 
-                const SizedBox(height: 40),
+                const SizedBox(height: 20),
 
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -394,7 +409,7 @@ class _SignupPageState extends State<SignupPage> {
                         'Log In',
                         style: TextStyle(
                             fontWeight: FontWeight.w500,
-                            fontSize: 18,
+                            fontSize: 17,
                             decoration: TextDecoration.underline,
                             decorationThickness: 1.3),
                       ),

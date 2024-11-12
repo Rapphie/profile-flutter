@@ -18,6 +18,11 @@ class _LoginPageState extends State<LoginPage> {
 
   bool _isObscured = true;
 
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
   // error message
   void showErrorMessage(String message) {
     showDialog(
@@ -36,6 +41,7 @@ class _LoginPageState extends State<LoginPage> {
 
   // sign user in method
   void loginUser() async {
+    // Show the loading dialog
     showDialog(
       context: context,
       builder: (context) {
@@ -44,14 +50,19 @@ class _LoginPageState extends State<LoginPage> {
     );
 
     try {
+      // Attempt to sign in
       await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: emailController.text,
         password: passwordController.text,
       );
+
       Navigator.pop(context);
     } on FirebaseAuthException catch (e) {
-      // Specific error handling
-      Navigator.pop(context);
+      // Handle specific Firebase authentication exceptions
+      if (mounted) {
+        Navigator.pop(context);
+      }
+
       if (e.code == 'invalid-credential') {
         showErrorMessage("Incorrect email or password.");
       } else if (e.code == 'channel-error') {
@@ -321,7 +332,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
 
-                const SizedBox(height: 120),
+                const SizedBox(height: 50),
 
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
