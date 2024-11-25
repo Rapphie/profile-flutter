@@ -8,24 +8,21 @@ class IntroPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: Text(
-                  'Welcome to my profile app',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 70,
-                    fontWeight: FontWeight.w600,
-                    letterSpacing: -5,
-                  ),
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Text(
+                'Welcome to my profile app',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 70,
+                  fontWeight: FontWeight.w600,
+                  letterSpacing: -5,
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
