@@ -112,7 +112,7 @@ This project leverages Firebase to authenticate users via Google and Facebook lo
   - Download the `google-services.json` file and place it in the `android/app` directory.
   - Follow the instructions in the Firebase Console to add the necessary configurations to your project.
 
-- Setup your firebase x flutter using the [Firebase Flutter Setup Documentation](https://firebase.google.com/docs/flutter/setup?platform=ios)
+- Setup your firebase x flutter using the [Firebase Flutter Setup Documentation](https://firebase.google.com/docs/flutter/setup?platform=android)
   - Ensure that after you follow the documentation generate corresponding SHA and put it in your firebase app check the [documentation here](https://developers.google.com/android/guides/client-auth)
 > [!IMPORTANT]
 > **Configure JDK Path:**
